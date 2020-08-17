@@ -1,0 +1,104 @@
+\# Reference macros
+.TITLE "CHANGE ME"
+.AUTHOR "CHANGE ME"
+.DRAFT 1
+.REVISION 0
+
+.DOCTYPE DEFAULT
+.PRINTSTYLE TYPESET
+.COPYSTYLE DRAFT \" Change it to FINAL when it's done
+\#
+\# Basic page setup
+\#
+.PAGE 8.5i 11i \" Printer sheet size
+.L_MARGIN 1.5i \" Left margin 1.5 inch
+.R_MARGIN 1i   \" Right margin 1 inch (calculates the line length)
+.T_MARGIN 1i   \" Top margin 1 inch
+.B_MARGIN 1i   \" Bottom margin 1 inch
+
+\#
+\# Basic type parameters
+\#
+.FAMILY  C     \" Courier family
+.FT      R     \" Medium Roman font
+.PT_SIZE 12    \" Point size
+.LEFT          \" Set lines flush left, nofill mode
+
+
+\# Screenplay macros
+.de ACTION_LINE
+.IQ CLEAR
+..
+.ALIAS A ACTION_LINE
+.ALIAS ACTION ACTION_LINE
+.ALIAS AL ACTION_LINE
+
+
+
+.de DIALOGUE
+.IQ CLEAR
+.IL 2.2i
+.CAPS
+\\$1           \" Character name
+.CAPS OFF
+.IQ CLEAR
+
+.IL 1i
+..
+.ALIAS D DIALOGUE
+.ALIAS LINE DIALOGUE
+
+
+.de END_DIALOGUE
+.IQ CLEAR
+..
+.ALIAS ED END_DIALOGUE
+.ALIAS END END_DIALOGUE
+
+
+
+.de PARENTHETICAL
+.IQ CLEAR
+.IL 1.6i
+(\\$1)
+.IQ CLEAR
+.IL 1i
+..
+.ALIAS PAR PARENTHETICAL
+.ALIAS P PARENTHETICAL
+.ALIAS ( PARENTHETICAL
+
+
+
+.de SCENE_HEADING
+.IQ CLEAR
+.CAPS
+\\$1
+.CAPS OFF
+..
+.ALIAS H SCENE_HEADING
+.ALIAS HEADING SCENE_HEADING
+.ALIAS SH SCENE_HEADING
+.ALIAS SLUG SCENE_HEADING
+.ALIAS SLUGLINE SCENE_HEADING
+
+
+
+\# EXAMPLE DOCUMENT
+.START
+
+
+.H "Int. Bedroom, Night"
+.A
+Darkness. The DOOR stares at JOE.
+
+.D "Joe"
+What?
+.E
+
+.D "Door"
+.( "Sarcastically"
+You cannot escape me.
+.E
+
+.FINIS
